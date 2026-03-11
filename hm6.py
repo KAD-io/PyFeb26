@@ -28,7 +28,7 @@ def hm6():
 
     # job 6.
     # Перевести строку в список "Robin Singh" => ["Robin”, “Singh"],
-    # "I love arrays they are my favorite" => 
+    # "I love arrays they are my favorite" =>
     # ["I", "love", "arrays", "they", "are", "my", "favorite"]
     str_job6_1 = "Robin Singh"
     str_job6_2 = "I love arrays they are my favorite"
@@ -43,7 +43,7 @@ def hm6():
     str_job7_2 = "airport"
     print(f'Hello, {list_job7[0]} {list_job7[1]}! {str_job7_1} to {str_job7_2}')
 
-    # job 8. 
+    # job 8.
     # Дан список ["I", "love", "arrays", "they", "are", "my", "favorite"]
     # сделайте из него строку => "I love arrays they are my favorite"
     list_job8 = ["I", "love", "arrays", "they", "are", "my", "favorite"]
