@@ -1,4 +1,6 @@
 """job 2."""
+
+
 def is_level_up(experience: int, threshold: int, reward: int) -> bool:
     """
     :param experience: current XP

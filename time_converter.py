@@ -1,4 +1,6 @@
 """job 3."""
+
+
 def time_converter(time24: str) -> str:
     """
     :param time24: 24-hour time format (hh:mm)
