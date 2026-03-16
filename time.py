@@ -1,3 +1,4 @@
+# job 1.
 def time(timer: int) -> int:
 
     # :param timer: minutes
