@@ -6,10 +6,11 @@ def bulls_and_cows():
     """
     This is a variant of the game "Bulls and Cows", where a person plays against a computer.
     The computer generates a secret 4-digit number with non-repeating digits.
-    The player is trying to guess the number. An attempt is to enter a 4-digit number with non-repeating digits.
+    The player is trying to guess the number.
+    An attempt is to enter a 4-digit number with non-repeating digits.
     In response, the computer tells you
-    how many digits are guessed without matching their positions in the secret number (i.e., the number of cows)
-    and how many are guessed up to the position in the secret number (i.e., the number of bulls).
+    how many digits are guessed without matching their positions in the secret number (cows)
+    and how many are guessed up to the position in the secret number (bulls).
     The player enters the combinations one by one until he guesses the whole sequence.
     """
     secret = random.sample("0123456789", 4)

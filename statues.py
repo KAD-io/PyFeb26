@@ -7,7 +7,9 @@ def get_count_missing_statues(statues: list[int]) -> int:
     :return: number of missing statues
     """
     statues.sort()
-    return sum(statues[i+1] - statues[i] - 1 for i in range(len(statues)-1) if statues[i+1] - statues[i] != 1)
+    return sum(statues[i+1] - statues[i] - 1
+               for i in range(len(statues)-1)
+               if statues[i+1] - statues[i] != 1)
 
 
 print(get_count_missing_statues([6, 2, 3, 8]))
