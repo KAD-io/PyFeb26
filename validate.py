@@ -12,13 +12,13 @@ def is_validate(number: int) -> bool:
         if number <= 0:
             return False
     number_list = [int(digit) for digit in str(number)]
-    if not (8 <= len(number_list) <= 19):
+    if not 8 <= len(number_list) <= 19:
         return False
     number_list.reverse()
-    for i in range(len(number_list)):
+    for i, item in enumerate(number_list):
         if i % 2:
-            number_list[i] = number_list[i] * 2 - 9 if number_list[i] * 2 > 9 \
-                else number_list[i] * 2
+            number_list[i] = item * 2 - 9 if item * 2 > 9 \
+                else item * 2
     return not bool(sum(number_list) % 10)
 
 
