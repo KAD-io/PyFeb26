@@ -12,7 +12,7 @@ def get_number_letters(text: str) -> str:
     count = 0
     current_char = ''
     result = ''
-    for ind, char in enumerate(text):
+    for char in text:
         if current_char == char:
             count += 1
         else:
