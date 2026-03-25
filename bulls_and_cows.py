@@ -20,9 +20,9 @@ def bulls_and_cows():
             print("You need to enter 4-digit number with non-repeating digits")
             continue
         bulls, cows = 0, 0
-        for i in range(len(number)):
-            if number[i] in secret:
-                if number[i] == secret[i]:
+        for i, digit in enumerate(number):
+            if digit in secret:
+                if digit == secret[i]:
                     bulls += 1
                 else:
                     cows += 1
