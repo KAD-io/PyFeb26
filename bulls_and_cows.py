@@ -19,8 +19,13 @@ def bulls_and_cows():
         if len(number) != 4 or not number.isdigit() or len(set(number)) != 4:
             print("You need to enter 4-digit number with non-repeating digits")
             continue
-        bulls = sum(1 for i in range(4) if number[i] == secret[i])
-        cows = sum(1 for i in range(4) if number[i] in secret and number[i] != secret[i])
+        bulls, cows = 0, 0
+        for i in range(len(number)):
+            if number[i] in secret:
+                if number[i] == secret[i]:
+                    bulls += 1
+                else:
+                    cows += 1
         print(f"Result: {bulls} bulls, {cows} cows")
         if bulls == 4:
             print('WIN!!!')
