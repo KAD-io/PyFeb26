@@ -14,26 +14,26 @@ def typed(type_):
 
 
 @typed(type_=str)
-def add(a, b):
+def add1(a, b):
     return a + b
 
 
-assert add("3", 5) == "35"
-assert add(5, 5) == "55"
-assert add('a', 'b') == 'ab'
+assert add1("3", 5) == "35"
+assert add1(5, 5) == "55"
+assert add1('a', 'b') == 'ab'
 
 
 @typed(type_=int)
-def add(a, b, c):
+def add2(a, b, c):
     return a + b + c
 
 
-assert add(5, 6, 7) == 18
+assert add2(5, 6, 7) == 18
 
 
 @typed(type_=float)
-def add(a, b, c):
+def add3(a, b, c):
     return a + b + c
 
 
-assert add(0.1, 0.2, 0.4) == 0.7000000000000001
+assert add3(0.1, 0.2, 0.4) == 0.7000000000000001

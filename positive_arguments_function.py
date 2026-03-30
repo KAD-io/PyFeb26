@@ -9,6 +9,7 @@ def validate_arguments(func):
         return func(*args)
     return wrapper
 
+
 @validate_arguments
 def nm11_job1(*args):
     """
