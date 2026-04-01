@@ -2,13 +2,13 @@
 
 
 class Book:
-    def __init__(self, book_name, author, num_pages, isbn, is_reserve=False, is_get=False):
+    def __init__(self, book_name, author, num_pages, isbn):
         self.book_name = book_name
         self.author = author
         self.num_pages = num_pages
         self.isbn = isbn
-        self.is_reserve = is_reserve
-        self.is_get = is_get
+        self.is_reserve = False
+        self.is_get = False
 
     def reserve(self):
         self.is_reserve = True
@@ -65,10 +65,6 @@ class Reader:
 
 
 book01 = Book(book_name="The Hobbit", author="Books by J.R.R. Tolkien", num_pages=400, isbn="0006754023")
-book02 = Book(book_name="The Fellowship of the Ring", author="Books by J.R.R. Tolkien", num_pages=500, isbn="0008264062")
-book03 = Book(book_name="The Two Towers", author="Books by J.R.R. Tolkien", num_pages=550, isbn="0008264079")
-book04 = Book(book_name="The Return of the King", author="Books by J.R.R. Tolkien", num_pages=600, isbn="0008264222")
-
 vasya = Reader("Vasya")
 petya = Reader("Petya")
 

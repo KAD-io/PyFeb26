@@ -32,7 +32,7 @@ class Bank:
             self.clients[client_id]["deposits"] = []
 
 
-client_id_01 = "0000001"
+client_id_01 = "0000001"  # pylint: disable=invalid-name
 
 bank = Bank()
 bank.register_client(client_id=client_id_01, name="Siarhei")
