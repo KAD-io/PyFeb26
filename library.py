@@ -29,12 +29,12 @@ class Reader:
         self.reserve_books = []
         self.get_books = []
 
-    def print_user_can_not(self, operation, book):
-        print(f"{self.name} can not {operation} {book.book_name}")
+    def print_user_can_not(self, operation, book_name):
+        print(f"{self.name} can not {operation} {book_name}")
 
     def reserve_book(self, book):
         if book.is_reserve:
-            self.print_user_can_not("reserve", book)
+            self.print_user_can_not("reserve", book.book_name)
         else:
             self.reserve_books.append(book)
             book.is_reserve = True
@@ -44,13 +44,13 @@ class Reader:
             self.reserve_books.remove(book)
             book.is_reserve = False
         else:
-            self.print_user_can_not("cancel reserve", book)
+            self.print_user_can_not("cancel reserve", book.book_name)
 
     def get_book(self, book):
         if book.is_get:
-            self.print_user_can_not("get", book)
+            self.print_user_can_not("get", book.book_name)
         elif book.is_reserve and book not in self.reserve_books:
-            self.print_user_can_not("get", book)
+            self.print_user_can_not("get", book.book_name)
         else:
             self.get_books.append(book)
             book.is_get = True
@@ -61,7 +61,7 @@ class Reader:
             self.get_books.remove(book)
             book.is_get = False
         else:
-            self.print_user_can_not("return", book)
+            self.print_user_can_not("return", book.book_name)
 
 
 book01 = Book(book_name="The Hobbit",

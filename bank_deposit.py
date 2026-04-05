@@ -21,7 +21,7 @@ class Bank:
 
     def calc_interest_rate(self, client_id):
         if client_id not in self.clients:
-            return "invalid client_id"
+            return f"Error, client_id {client_id} is not registered"
 
         return round(sum(
             deposit["start_balance"] * (1 + deposit["rate"] / 12) ** (12 * deposit["years"])
