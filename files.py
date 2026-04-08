@@ -87,7 +87,7 @@ def edit_file(file_name):
                 file.write(f"Group: {group}\t"
                            f"Number of students: {info['number']}\t"
                            f"AVG: {round(info['avg'],2)}\n")
-
+        return None
     except FileNotFoundError:
         print(f"Error: File {file_name} not found.")
         return None
