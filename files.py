@@ -60,36 +60,36 @@ def edit_file(file_name):
     try:
         with open(file_name, "r", encoding="utf-8") as file:
             students_list_str = file.readlines()
+
+        students_list = [Student.from_str(students_line.strip())
+                         for students_line in students_list_str]
+        if IndexError in students_list or ValueError in students_list:
+            print(f"Error: Incorrect list of students in the file {file_name}")
+            return None
+
+        dict_group = {}
+        for student in students_list:
+            if student.group in dict_group:
+                dict_group[student.group]['number'] += 1
+                dict_group[student.group]['avg'] += student.estimation
+            else:
+                dict_group[student.group] = {}
+                dict_group[student.group]['number'] = 1
+                dict_group[student.group]['avg'] = student.estimation
+
+        for _, data in dict_group.items():
+            data['avg'] /= data['number']
+
+        with open(file_name, "a", encoding="utf-8") as file:
+            file.write(f"\nTotal number of students: {len(students_list)}\n")
+            file.write("\nThe number of students and the average grade for each group:\n")
+            for group, info in dict_group.items():
+                file.write(f"Group: {group}\t"
+                           f"Number of students: {info['number']}\t"
+                           f"AVG: {round(info['avg'],2)}\n")
+
     except FileNotFoundError:
         print(f"Error: File {file_name} not found.")
-        return None
-
-    students_list = [Student.from_str(students_line.strip())
-                     for students_line in students_list_str]
-    if IndexError in students_list or ValueError in students_list:
-        print(f"Error: Incorrect list of students in the file {file_name}")
-        return None
-
-    dict_group = {}
-    for student in students_list:
-        if student.group in dict_group:
-            dict_group[student.group]['number'] += 1
-            dict_group[student.group]['avg'] += student.estimation
-        else:
-            dict_group[student.group] = {}
-            dict_group[student.group]['number'] = 1
-            dict_group[student.group]['avg'] = student.estimation
-
-    for group in dict_group:
-        dict_group[group]['avg'] /= dict_group[group]['number']
-
-    with open(file_name, "a", encoding="utf-8") as file:
-        file.write(f"\nTotal number of students: {len(students_list)}\n")
-        file.write("\nThe number of students and the average grade for each group:\n")
-        for group, info in dict_group.items():
-            file.write(f"Group: {group}\t"
-                       f"Number of students: {info['number']}\t"
-                       f"AVG: {round(info['avg'],2)}\n")
 
 
 write_file("students.txt")
