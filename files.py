@@ -90,6 +90,7 @@ def edit_file(file_name):
 
     except FileNotFoundError:
         print(f"Error: File {file_name} not found.")
+        return None
 
 
 write_file("students.txt")

@@ -21,6 +21,7 @@ def get_days_diff(date_str1, date_str2):
 
     except ValueError:
         print("Error! Check the date format (it should be YYYY-MM-DD)")
+        return None
 
 
 def check_date(date_str):
@@ -37,6 +38,7 @@ def check_date(date_str):
 
     except ValueError:
         print("Error! Check the date format (it should be YYYY-MM-DD)")
+        return None
 
 
 input_date1 = input("Enter the first date (YYYY-MM-DD): ")
