@@ -3,9 +3,6 @@ import xml.etree.ElementTree as ET
 import yaml
 
 
-"""hm15_job1"""
-
-
 PRODUCTS = {
     'name': ['27" Monitor'
              'Mechanical Keyboard',
@@ -48,6 +45,7 @@ BOOKS = [
 
 
 def create_xml(xml_file, products):
+    """hm15_job1"""
     root = ET.Element("products")
 
     for name, price, quantity in zip(products['name'], products['price'], products['quantity']):
@@ -67,10 +65,8 @@ def parse_xml(xml_file):
                 for item in ET.parse(xml_file).getroot().findall("item")))
 
 
-"""hm15_job2"""
-
-
 def create_json(json_file, clubs_data):
+    """hm15_job2"""
     with open(json_file, 'w', encoding='utf-8') as f:
         json.dump(clubs_data, f, indent=4)
 
@@ -82,10 +78,8 @@ def parse_json(json_file):
     return max(clubs_data, key=lambda club: club["trophies"])
 
 
-"""hm15_job3"""
-
-
 def save_yaml(yaml_file, books_data):
+    """hm15_job3"""
     with open(yaml_file, 'w', encoding='utf-8') as f:
         yaml.dump(books_data, f, sort_keys=False)
 
