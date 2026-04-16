@@ -4,12 +4,10 @@ def test02_task06(file_path):
         lines = file.readlines()
         text = "".join(lines)
 
-
     line_count = len(lines)
     word_count = len(text.split())
 
     letter_count = sum(char.isalpha() for char in text)
-
 
     stats = (
         f"line count: {line_count}\n"
