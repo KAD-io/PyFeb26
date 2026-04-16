@@ -1,4 +1,4 @@
-def test02_task04(list_numbers=[1, 2, 3]):
+def test02_task05(number=10201):
     if number < 0:
         return False
     str_number = str(number)
