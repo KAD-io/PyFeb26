@@ -6,6 +6,6 @@ def test02_task01(test_str='1234567890abcde'):
     print(f'len: {len(test_str)}')
     print(f'in the reverse order: {test_str[::-1]}')
     print(f'first 8 symbols: {test_str[0:8]}')
-    
-    
+
+
 test02_task01()
