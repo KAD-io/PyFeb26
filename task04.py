@@ -1,4 +1,4 @@
-def test02_task04(list_numbers=[1, 2, 3]):
+def test02_task04(list_numbers):
     r = 1
     number = 0
     for x in list_numbers[::-1]:
@@ -14,4 +14,4 @@ def test02_task04(list_numbers=[1, 2, 3]):
     print(f'rezult: {new_list_numbers}')
 
 
-test02_task04()
+test02_task04([1, 2, 3])
