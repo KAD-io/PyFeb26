@@ -1,11 +1,11 @@
 def is_win(player, field):
     win = player * 3
-    for l in range(3):
-        if field[l][0] + field[l][1] + field[l][2] == win:
+    for col in range(3):
+        if field[col][0] + field[col][1] + field[col][2] == win:
             return True
 
-    for r in range(3):
-        if field[0][r] + field[1][r] + field[2][r] == win:
+    for row in range(3):
+        if field[0][row] + field[1][row] + field[2][row] == win:
             return True
 
     if field[0][0] + field[1][1] + field[2][2] == win:
@@ -33,12 +33,12 @@ def test02_task08():
 
     while True:
         print_field(field)
-        l, r = map(int, input("Enter the coordinates separated by a space: ").split())
-        if field[l][r] != ' ':
+        col, row = map(int, input("Enter the coordinates separated by a space: ").split())
+        if field[col][row] != ' ':
             print("Cage is occupied")
             continue
 
-        field[l][r] = player
+        field[col][row] = player
         counter += 1
 
         if is_win(player, field):
