@@ -2,8 +2,9 @@
 
 
 from datetime import datetime
-from dateutil.relativedelta import relativedelta
 from logging import getLogger, ERROR, basicConfig
+
+from dateutil.relativedelta import relativedelta
 
 DATE_FORMAT = "%Y-%m-%d"
 LOGGER = getLogger()
