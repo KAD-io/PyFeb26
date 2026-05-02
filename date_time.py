@@ -3,8 +3,12 @@
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+from logging import getLogger, ERROR, basicConfig
 
 DATE_FORMAT = "%Y-%m-%d"
+LOGGER = getLogger()
+FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
+basicConfig(level=ERROR, format=FORMAT)
 
 
 def get_days_diff(date_str1, date_str2):
@@ -20,7 +24,7 @@ def get_days_diff(date_str1, date_str2):
                 f"{abs(diff.days)} days")
 
     except ValueError:
-        print("Error! Check the date format (it should be YYYY-MM-DD)")
+        LOGGER.error('Check the date format (it should be YYYY-MM-DD)')
         return None
 
 
@@ -37,7 +41,7 @@ def check_date(date_str):
             return f"{date} — now"
 
     except ValueError:
-        print("Error! Check the date format (it should be YYYY-MM-DD)")
+        LOGGER.error('Check the date format (it should be YYYY-MM-DD)')
         return None
 
 

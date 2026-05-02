@@ -3,6 +3,11 @@
 
 import re
 from datetime import datetime
+from logging import getLogger, INFO, basicConfig
+
+LOGGER = getLogger()
+FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
+basicConfig(level=INFO, format=FORMAT)
 
 
 def find_valid_dates(file_name):
@@ -19,7 +24,7 @@ def find_valid_dates(file_name):
                     except ValueError:
                         pass
     except FileNotFoundError:
-        print(f"Error: File {file_name} not found.")
+        LOGGER.error('File %s not found', file_name)
 
 
 def is_valid_password(password):
@@ -42,9 +47,9 @@ while True:
     input_pass = input('Enter the password or "0" to exit: ')
     if input_pass == '0':
         break
-    print(f'Is the password valid: {is_valid_password(input_pass)}')
+    LOGGER.info('Is the password "%s" valid: %s', input_pass, is_valid_password(input_pass))
 
 TEXT = ("Довольно распространённая ошибка ошибка — это лишний повтор повтор слова слова. "
         "Смешно, не не правда ли? Не нужно портить хор хоровод.")
 
-print(errors_correction(TEXT))
+LOGGER.info('Correction result: %s', errors_correction(TEXT))

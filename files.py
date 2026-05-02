@@ -1,6 +1,7 @@
 """hm14_job1"""
 
 import random
+from logging import getLogger, ERROR, basicConfig
 
 
 class Student:
@@ -57,6 +58,9 @@ def write_file(file_name):
 
 
 def edit_file(file_name):
+    logger = getLogger()
+    format_log = "%(asctime)s - %(levelname)s - %(message)s"
+    basicConfig(level=ERROR, format=format_log)
     try:
         with open(file_name, "r", encoding="utf-8") as file:
             students_list_str = file.readlines()
@@ -64,7 +68,7 @@ def edit_file(file_name):
         students_list = [Student.from_str(students_line.strip())
                          for students_line in students_list_str]
         if IndexError in students_list or ValueError in students_list:
-            print(f"Error: Incorrect list of students in the file {file_name}")
+            logger.error('Incorrect list of students in the file %s', file_name)
             return None
 
         dict_group = {}
@@ -89,7 +93,7 @@ def edit_file(file_name):
                            f"AVG: {round(info['avg'],2)}\n")
         return None
     except FileNotFoundError:
-        print(f"Error: File {file_name} not found.")
+        logger.error('File %s not found', file_name)
         return None
 
 
