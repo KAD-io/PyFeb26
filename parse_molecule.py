@@ -36,30 +36,30 @@ def is_valid_brackets(formula: str) -> bool:
     return True
 
 
+def get_count(molecule_list: list, index: int) -> int:
+    count = 1
+    if index + 1 < len(molecule_list):
+        if molecule_list[index + 1].isdigit():
+            count = int(molecule_list[index + 1])
+    return count
+
+
 def parse_molecule(formula: str) -> dict:
     if not is_valid_brackets(formula):
         LOGGER.error('The sequence of parentheses in the "%s" formula is broken', formula)
         return {}
 
     molecule_list = molecule_to_list(formula)
-    atoms = [{}]
+    atoms: list[dict[str, int]] = [{}]
     for index, mark in enumerate(molecule_list):
         if mark.isalpha():
-
-            count = 1
-            if index + 1 < len(molecule_list):
-                if molecule_list[index + 1].isdigit():
-                    count = int(molecule_list[index + 1])
-
+            count = get_count(molecule_list, index)
             atoms[-1][mark] = atoms[-1].get(mark, 0) + count
         if mark in '({[':
             atoms.append({})
         if mark in ')}]':
             in_brackets = atoms.pop()
-            mult = 1
-            if molecule_list[index + 1].isdigit():
-                if molecule_list[index + 1].isdigit():
-                    mult = int(molecule_list[index + 1])
+            mult = get_count(molecule_list, index)
             for element, count in in_brackets.items():
                 atoms[-1][element] = atoms[-1].get(element, 0) + in_brackets.get(element, 1) * mult
 
