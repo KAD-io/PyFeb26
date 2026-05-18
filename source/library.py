@@ -1,10 +1,7 @@
-from logging import getLogger, INFO, basicConfig
+from logging import getLogger
 
 
-DATE_FORMAT = "%Y-%m-%d"
-LOGGER = getLogger()
-FORMAT = "%(asctime)s - %(levelname)s - %(funcName)s: %(message)s"
-basicConfig(level=INFO, format=FORMAT)
+LOGGER = getLogger(__name__)
 
 
 class Book:
