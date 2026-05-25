@@ -1,5 +1,5 @@
-import pytest
 import logging
+import pytest
 from playwright.sync_api import sync_playwright
 
 
