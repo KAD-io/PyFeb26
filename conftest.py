@@ -35,7 +35,7 @@ def page():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
         context = browser.new_context()
-        page = context.new_page()
+        page = context.new_page()  # pylint: disable=redefined-outer-name
         page.goto("https://www.saucedemo.com/")
         yield page
         browser.close()
