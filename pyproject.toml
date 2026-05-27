@@ -17,12 +17,16 @@ line-length = 120
 install_types = true
 non_interactive = true
 ignore_missing_imports = true
+namespace_packages = true
+explicit_package_bases = true
 exclude = [
     "venv",
     "tests"
 ]
 
 [tool.pylint.MASTER]
+load-plugins = "pylint_pytest"
+max-attributes = 10
 argument-naming-style = "snake_case"
 variable-naming-style = "snake_case"
 function-naming-style = "snake_case"
