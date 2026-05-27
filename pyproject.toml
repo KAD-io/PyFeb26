@@ -25,7 +25,6 @@ exclude = [
 ]
 
 [tool.pylint.MASTER]
-load-plugins = "pylint_pytest"
 max-attributes = 10
 argument-naming-style = "snake_case"
 variable-naming-style = "snake_case"
@@ -37,6 +36,7 @@ ignore-paths = [
     'tests/*'
 ]
 disable = [
+    "redefined-outer-name",
     "raw-checker-failed",
     "bad-inline-option",
     "locally-disabled",
