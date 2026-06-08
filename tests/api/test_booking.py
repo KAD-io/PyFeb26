@@ -1,7 +1,9 @@
-import requests
-import pytest
 from logging import getLogger
+
+import pytest
+import requests
 from jsonschema import validate
+
 from test_data.user import Payload
 
 LOGGER = getLogger(__name__)

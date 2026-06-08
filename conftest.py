@@ -1,7 +1,8 @@
-import pytest
 from logging import getLogger
 
-from test_data.json_schemas import Schema
+import pytest
+
+from test_data.booking_schemas import Schema
 
 LOGGER = getLogger(__name__)
 
