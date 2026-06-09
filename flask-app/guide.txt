@@ -1,0 +1,10 @@
+1. Go to flask-app folder
+
+2. Build a Docker image:
+    docker build -t flask_cat_app .
+
+3. Run container:
+    docker run -d -p 8866:5001 --name flask_cat_app flask_cat_app
+
+4. Open the app in a browser at: 
+    http://localhost:8866
