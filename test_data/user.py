@@ -17,4 +17,3 @@ class Payload:
         "additionalneeds": "Dinner"
     }
     PATCH_PAYLOAD = {"firstname": "Alex", "totalprice": 500}
-    

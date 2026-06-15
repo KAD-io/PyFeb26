@@ -35,4 +35,3 @@ class Schema:
         },
         "required": ["bookingid", "booking"]
     }
-    
