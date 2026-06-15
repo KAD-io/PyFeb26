@@ -12,7 +12,7 @@ pipeline {
                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                     dir('/var/jenkins_home/workspace/hm31') {
                         sh """
-                        python3 -m pip install -r requirements.txt --break-system-packages
+                        python3 -m pip install --no-cache-dir -r requirements.txt --break-system-packages
                         python3 -m pytest . -m ${scope} --alluredir allure-results
                         """
                     }
