@@ -14,6 +14,8 @@ output-format = 'github'
 line-length = 120
 
 [tool.mypy]
+namespace_packages = true
+explicit_package_bases = true
 install_types = true
 non_interactive = true
 ignore_missing_imports = true
