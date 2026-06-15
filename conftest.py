@@ -7,6 +7,10 @@ from test_data.booking_schemas import Schema
 LOGGER = getLogger(__name__)
 
 
+def pytest_addoption(parser):
+    parser.addini('base_url', help='Base URL for the API tests')
+
+
 @pytest.fixture(scope="session")
 def base_url(request):
     return request.config.getini("base_url")
